@@ -1,6 +1,11 @@
 import express from "express"
 const app = express();
 
+import helmet from "helmet";
+app.use(helmet());
+import rateLimit from "express-rate-limit";
+app.use(rateLimit({windowMs:15*60*1000,max:100,standardHeaders:true,legacyHeaders:false}));
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 

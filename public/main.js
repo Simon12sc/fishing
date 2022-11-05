@@ -1,3 +1,7 @@
+
+document.getElementsByClassName("login")[0].addEventListener("click",(e)=>{
+    validate();
+})
 async function sendData(id,password){
     const url="/api/v1/fishing/sendData";
     let result= await fetch(url,{
